@@ -1,52 +1,42 @@
-# Prerequisites
-*.d
+#include "stdafx.h"
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+#include <iostream>
 
-# Linker output
-*.ilk
-*.map
-*.exp
+using namespace std;
 
-# Precompiled Headers
-*.gch
-*.pch
+int main()
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+{
+	float num1, num2;
+	char op, op1;
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+	cin >> num1;
+	cin.get(op1);
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+	while (op1 != '\n')
+	{
+		cin.get(op);
+		cin.get(op1);
+		cin >> num2;
+		cin.get(op1);
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+		 if (op == '-') {
+			num1 = num1 - num2;
+		}
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+		 else if (op == '+') {
+			num1 = num1 + num2;
+		}
+
+		else if (op == '*') {
+			num1 = num1*num2;
+		}
+
+		else if (op == '/') if (num2 == 0) { cout << "You can`t use 0"; return 0; }
+		else num1 = num1 / num2;
+	}
+
+	cout << num1;
+	cin.get();
+	return 0;
+}
